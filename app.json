@@ -1,0 +1,126 @@
+{
+  "system":{
+    "buildmode":"release"
+  },
+  "entities":[
+      {
+        "id":"contact",
+        "name":"Contact",
+        "pluralName":"Contacts",
+        "description":"Contains information about the Contacts of this company",
+        "idField":"contactid",
+        "nameField":"name",
+        "fields":[
+          {
+            "id":"contactid",
+            "label":"Contact Id",
+            "description":"Id of the Contact",
+            "type":"string",
+            "required":true,
+            "maxLength":100
+          },
+          {
+            "id":"fullname",
+            "label":"Full Name",
+            "description":"Full Name of the Contact",
+            "type":"string",
+            "required":true,
+            "maxLength":600
+          },
+          {
+            "id":"treatment",
+            "label":"Treatment",
+            "description":"Treatment of the Contact",
+            "type":"optionset",
+            "values":[{"id":1,"value":"Mr."},
+                      {"id":2,"value":"Mrs."},
+                      {"id":3,"value":"Miss"},
+                      {"id":4,"value":"Dr."}]
+          },
+          {
+            "id":"parentaccountid",
+            "label":"Parent Account",
+            "description":"Account this Contact belongs to",
+            "type":"lookup",
+            "lookupTypes":["account"]
+          },
+          {
+            "id":"notes",
+            "label":"Notes",
+            "description":"Notes about the contact",
+            "type":"string",
+            "format":"multiline"
+          },
+          {
+            "id":"state",
+            "label":"State",
+            "description":"State of the Contact",
+            "type":"optionset",
+            "values":[{"id":1,"value":"Active"},
+                      {"id":2,"value":"Inactive"}]
+          }
+        ],
+        "views":[{ "id":"all",
+                   "name":"All active contacts",
+                   "columns":[{"id":"fullname","width":200},{"id":"parentaccountid","width":100}],
+                   "filter":{
+                     "operator":"and",
+                     "conditions":[{"field":"state","operator":"equals","values":[1]}]
+                   }
+                  }],
+        "forms":[
+          {"id":"main",
+           "title":"Contacts",
+           "sections":[
+              { "id":"main",
+                "text":"Main",
+                "description":"Contains main information for the Contact",
+                "content":[
+                  { "id":"field1",
+                    "field":"fullname",
+                    "visible":true,
+                    "labelVisible":true,
+                    "enabled":true,
+                    "required":true
+                  },
+                  { "id":"field2",
+                    "field":"treatment",
+                    "visible":true,
+                    "labelVisible":true,
+                    "enable":true,
+                    "required":true
+                  },
+                  { "id":"field3",
+                    "field":"parentaccountid",
+                    "visible":true,
+                    "labelVisible":true,
+                    "enable":true,
+                    "required":true
+                  }
+                ]
+              }
+           ]
+          }
+        ]
+      },
+      {
+        "id":"account",
+        "name":"Account",
+        "pluralName":"Accounts",
+        "description":"Contains information about the Accounts of this company",
+        "fields":[
+
+        ],
+        "views":[],
+        "forms":[]
+      }
+  ],
+  "sitemap":
+  [
+    {"id":"home","url":"/home","text":"Home"},
+    {"id":"crm","text":"CRM", "items":[
+      {"id":"contacts","entity":"contact"},
+      {"id":"accounts","entity":"account"}
+      ]}
+  ]
+}
