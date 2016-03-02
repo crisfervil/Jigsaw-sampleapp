@@ -1,126 +1,311 @@
 {
-  "system":{
-    "buildmode":"release"
-  },
-  "entities":[
+  "system": {
+    "buildmode": "release",
+    "sequences": [
       {
-        "id":"contact",
-        "name":"Contact",
-        "pluralName":"Contacts",
-        "description":"Contains information about the Contacts of this company",
-        "idField":"contactid",
-        "nameField":"name",
-        "fields":[
-          {
-            "id":"contactid",
-            "label":"Contact Id",
-            "description":"Id of the Contact",
-            "type":"string",
-            "required":true,
-            "maxLength":100
-          },
-          {
-            "id":"fullname",
-            "label":"Full Name",
-            "description":"Full Name of the Contact",
-            "type":"string",
-            "required":true,
-            "maxLength":600
-          },
-          {
-            "id":"treatment",
-            "label":"Treatment",
-            "description":"Treatment of the Contact",
-            "type":"optionset",
-            "values":[{"id":1,"value":"Mr."},
-                      {"id":2,"value":"Mrs."},
-                      {"id":3,"value":"Miss"},
-                      {"id":4,"value":"Dr."}]
-          },
-          {
-            "id":"parentaccountid",
-            "label":"Parent Account",
-            "description":"Account this Contact belongs to",
-            "type":"lookup",
-            "lookupTypes":["account"]
-          },
-          {
-            "id":"notes",
-            "label":"Notes",
-            "description":"Notes about the contact",
-            "type":"string",
-            "format":"multiline"
-          },
-          {
-            "id":"state",
-            "label":"State",
-            "description":"State of the Contact",
-            "type":"optionset",
-            "values":[{"id":1,"value":"Active"},
-                      {"id":2,"value":"Inactive"}]
-          }
-        ],
-        "views":[{ "id":"all",
-                   "name":"All active contacts",
-                   "columns":[{"id":"fullname","width":200},{"id":"parentaccountid","width":100}],
-                   "filter":{
-                     "operator":"and",
-                     "conditions":[{"field":"state","operator":"equals","values":[1]}]
-                   }
-                  }],
-        "forms":[
-          {"id":"main",
-           "title":"Contacts",
-           "sections":[
-              { "id":"main",
-                "text":"Main",
-                "description":"Contains main information for the Contact",
-                "content":[
-                  { "id":"field1",
-                    "field":"fullname",
-                    "visible":true,
-                    "labelVisible":true,
-                    "enabled":true,
-                    "required":true
-                  },
-                  { "id":"field2",
-                    "field":"treatment",
-                    "visible":true,
-                    "labelVisible":true,
-                    "enable":true,
-                    "required":true
-                  },
-                  { "id":"field3",
-                    "field":"parentaccountid",
-                    "visible":true,
-                    "labelVisible":true,
-                    "enable":true,
-                    "required":true
-                  }
-                ]
-              }
-           ]
-          }
-        ]
+        "id": "contactid",
+        "increment": 1,
+        "format": "$current:0000"
       },
       {
-        "id":"account",
-        "name":"Account",
-        "pluralName":"Accounts",
-        "description":"Contains information about the Accounts of this company",
-        "fields":[
-
-        ],
-        "views":[],
-        "forms":[]
+        "id": "accountid",
+        "increment": 1,
+        "format": "$current:0000"
       }
+    ]
+  },
+  "entities": [
+    {
+      "id": "contact",
+      "name": "Contact",
+      "pluralName": "Contacts",
+      "description": "Contains information about the Contacts of this company",
+      "idField": "contactid",
+      "nameField": "fullname",
+      "fields": [
+        {
+          "id": "contactid",
+          "label": "Contact Id",
+          "description": "Id of the Contact",
+          "type": "string",
+          "maxLength": 100,
+          "sequence": "contactid"
+        },
+        {
+          "id": "fullname",
+          "label": "Full Name",
+          "description": "Full Name of the Contact",
+          "type": "string",
+          "maxLength": 600,
+          "required": true,
+          "sequence": "contactid"
+        },
+        {
+          "id": "treatment",
+          "label": "Treatment",
+          "description": "Treatment of the Contact",
+          "type": "optionset",
+          "values": [
+            {
+              "id": 1,
+              "text": "Mr."
+            },
+            {
+              "id": 2,
+              "text": "Mrs."
+            },
+            {
+              "id": 3,
+              "text": "Miss"
+            },
+            {
+              "id": 4,
+              "text": "Dr."
+            }
+          ]
+        },
+        {
+          "id": "parentaccountid",
+          "label": "Parent Account",
+          "description": "Account this Contact belongs to",
+          "type": "lookup",
+          "lookupTypes": [
+            "account"
+          ]
+        },
+        {
+          "id": "notes",
+          "label": "Notes",
+          "description": "Notes about the contact",
+          "type": "string",
+          "format": "multiline"
+        },
+        {
+          "id": "status",
+          "label": "Status",
+          "description": "Status of the Contact",
+          "type": "optionset",
+          "values": [
+            {
+              "id": 1,
+              "text": "Active"
+            },
+            {
+              "id": 2,
+              "text": "Inactive"
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "id": "all",
+          "name": "All active contacts",
+          "columns": [
+            {
+              "id": "fullname",
+              "width": 200
+            },
+            {
+              "id": "parentaccountid",
+              "width": 100
+            }
+          ],
+          "filter": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "state",
+                "operator": "equals",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "forms": [
+        {
+          "id": "main",
+          "title": "Contacts",
+          "description": "Creates/Updates Contact records",
+          "sections": [
+            {
+              "id": "main",
+              "text": "Main",
+              "description": "Contains main information for a Contact",
+              "content": [
+                {
+                  "id": "field1",
+                  "field": "fullname",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enabled": true,
+                  "required": true
+                },
+                {
+                  "id": "field2",
+                  "field": "treatment",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enable": true,
+                  "required": true
+                },
+                {
+                  "id": "field3",
+                  "field": "parentaccountid",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enable": true,
+                  "required": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "account",
+      "name": "Account",
+      "pluralName": "Accounts",
+      "description": "Contains information about the Accounts of this company",
+      "idField": "accountid",
+      "nameField": "name",
+      "fields": [
+        {
+          "id": "accountid",
+          "label": "Account Id",
+          "description": "Id of the Account",
+          "type": "string",
+          "sequence": "accountid"
+        },
+        {
+          "id": "name",
+          "label": "Name",
+          "description": "Name of the Account",
+          "type": "string",
+          "required": true,
+          "maxLength": 300
+        },
+        {
+          "id": "createdon",
+          "label": "Created On",
+          "description": "The date this Account was created",
+          "type": "datetime"
+        },
+        {
+          "id": "updatedon",
+          "label": "Updated On",
+          "description": "The date this Account was updated",
+          "type": "datetime"
+        },
+        {
+          "id": "status",
+          "label": "Status",
+          "description": "Status of the Account",
+          "type": "optionset",
+          "required": true,
+          "values": [
+            {
+              "id": 1,
+              "text": "Active"
+            },
+            {
+              "id": 2,
+              "text": "Inactive"
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "id": "all",
+          "name": "All active accounts",
+          "columns": [
+            {
+              "id": "name",
+              "width": 200
+            },
+            {
+              "id": "createdon",
+              "width": 100
+            }
+          ],
+          "filter": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "state",
+                "operator": "equals",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "forms": [
+        {
+          "id": "main",
+          "title": "Accounts",
+          "description": "Creates/Updates Account records",
+          "sections": [
+            {
+              "id": "main",
+              "text": "Main",
+              "description": "Contains main information for an Account",
+              "content": [
+                {
+                  "id": "field1",
+                  "field": "name",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enabled": true,
+                  "required": true
+                },
+                {
+                  "id": "field2",
+                  "field": "createdon",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enable": false
+                },
+                {
+                  "id": "field3",
+                  "field": "updatedon",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enable": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   ],
-  "sitemap":
-  [
-    {"id":"home","url":"/home","text":"Home"},
-    {"id":"crm","text":"CRM", "items":[
-      {"id":"contacts","entity":"contact"},
-      {"id":"accounts","entity":"account"}
-      ]}
+  "sitemap": [
+    {
+      "id": "home",
+      "url": "/home",
+      "text": "Home"
+    },
+    {
+      "id": "crm",
+      "text": "CRM",
+      "items": [
+        {
+          "id": "contacts",
+          "entity": "contact"
+        },
+        {
+          "id": "accounts",
+          "entity": "account"
+        }
+      ]
+    }
   ]
 }
