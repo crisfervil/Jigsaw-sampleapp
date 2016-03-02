@@ -37,8 +37,7 @@
           "description": "Full Name of the Contact",
           "type": "string",
           "maxLength": 600,
-          "required": true,
-          "sequence": "contactid"
+          "formula":"contact.treatment+contact.name+contact.lastname"
         },
         {
           "id": "treatment",
@@ -65,6 +64,27 @@
           ]
         },
         {
+          "id": "name",
+          "label": "Name",
+          "description": "Name of the Contact",
+          "type": "string",
+          "maxLength": 100,
+          "required": true
+        },
+        {
+          "id": "lastname",
+          "label": "Last Name",
+          "description": "Last Name of the Contact",
+          "type": "string",
+          "maxLength": 100
+        },
+        {
+          "id": "age",
+          "label": "Age",
+          "description": "Age of the Contact",
+          "type": "integer"
+        },
+        {
           "id": "parentaccountid",
           "label": "Parent Account",
           "description": "Account this Contact belongs to",
@@ -74,12 +94,36 @@
           ]
         },
         {
+          "id": "receivenewsletter",
+          "label": "Receive Newsletter",
+          "description": "Indicates if the Contact wants to receive the company Newletter",
+          "type": "optionset",
+          "defaultValue":2,
+          "format":"radiobutton",
+          "values": [
+            {"id":1,"text":"Yes"},
+            {"id":2,"text":"No"}
+          ]
+        },
+        {
           "id": "notes",
           "label": "Notes",
           "description": "Notes about the contact",
           "type": "string",
           "format": "multiline"
         },
+        {
+          "id": "createdon",
+          "label": "Created On",
+          "description": "The date this Contact was created",
+          "type": "datetime"
+        },
+        {
+          "id": "updatedon",
+          "label": "Updated On",
+          "description": "The date this Contact was updated",
+          "type": "datetime"
+        },        
         {
           "id": "status",
           "label": "Status",
@@ -108,6 +152,14 @@
             },
             {
               "id": "parentaccountid",
+              "width": 100
+            },
+            {
+              "id": "createdon",
+              "width": 100
+            },
+            {
+              "id": "status",
               "width": 100
             }
           ],
@@ -149,7 +201,7 @@
                   "field": "treatment",
                   "visible": true,
                   "labelVisible": true,
-                  "enable": true,
+                  "enabled": true,
                   "required": true
                 },
                 {
@@ -157,7 +209,7 @@
                   "field": "parentaccountid",
                   "visible": true,
                   "labelVisible": true,
-                  "enable": true,
+                  "enabled": true,
                   "required": true
                 }
               ]
@@ -271,14 +323,14 @@
                   "field": "createdon",
                   "visible": true,
                   "labelVisible": true,
-                  "enable": false
+                  "enabled": false
                 },
                 {
                   "id": "field3",
                   "field": "updatedon",
                   "visible": true,
                   "labelVisible": true,
-                  "enable": false
+                  "enabled": false
                 }
               ]
             }
