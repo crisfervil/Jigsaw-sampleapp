@@ -190,14 +190,6 @@
               "content": [
                 {
                   "id": "field1",
-                  "field": "fullname",
-                  "visible": true,
-                  "labelVisible": true,
-                  "enabled": true,
-                  "required": true
-                },
-                {
-                  "id": "field2",
                   "field": "treatment",
                   "visible": true,
                   "labelVisible": true,
@@ -205,12 +197,60 @@
                   "required": true
                 },
                 {
-                  "id": "field3",
-                  "field": "parentaccountid",
+                  "id": "field2",
+                  "field": "name",
                   "visible": true,
                   "labelVisible": true,
                   "enabled": true,
                   "required": true
+                },
+                {
+                  "id": "field3",
+                  "field": "lastname",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enabled": true
+                },
+                {
+                  "id": "field4",
+                  "field": "age",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enabled": true
+                },
+                {
+                  "id": "field5",
+                  "field": "receivenewsletter",
+                  "visible": true,
+                  "labelVisible": true,
+                  "enabled": true
+                },
+                {
+                  "id": "field6",
+                  "field": "createdon",
+                  "visible": true,
+                  "labelVisible": true
+                },
+                {
+                  "id": "field8",
+                  "field": "updatedon",
+                  "visible": true,
+                  "labelVisible": true
+                }
+              ]
+            },
+            {
+              "id":"notes",
+              "text":"Notes",
+              "description":"Notes about the Contact",
+              "content":[
+                {
+                  "id": "field1",
+                  "field": "notes",
+                  "visible": true,
+                  "labelVisible": false,
+                  "enabled": true,
+                  "occupyAvailableHeight":true
                 }
               ]
             }
