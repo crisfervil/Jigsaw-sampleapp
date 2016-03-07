@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/crisfervil/Jigsaw-testapp/issues"
   },
-  "homepage": "https://github.com/crisfervil/Jigsaw-testapp#readme"
+  "homepage": "https://github.com/crisfervil/Jigsaw-testapp#readme",
+  "config": {
+    "jigsaw": {
+      "packages": [
+        "jigsaw-app",
+        "jigsaw-mean"
+      ]
+    }
+  }
 }
