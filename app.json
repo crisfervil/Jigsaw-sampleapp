@@ -82,7 +82,7 @@
           "id": "age",
           "label": "Age",
           "description": "Age of the Contact",
-          "type": "integer"
+          "type": "number"
         },
         {
           "id": "parentaccountid",
@@ -123,7 +123,7 @@
           "label": "Updated On",
           "description": "The date this Contact was updated",
           "type": "datetime"
-        },        
+        },
         {
           "id": "status",
           "label": "Status",
@@ -170,7 +170,7 @@
                 "field": "state",
                 "operator": "equals",
                 "values": [
-                  1
+                  "1"
                 ]
               }
             ]
@@ -250,7 +250,7 @@
                   "visible": true,
                   "labelVisible": false,
                   "enabled": true,
-                  "occupyAvailableHeight":true
+                  "spreadAvailableHeight":true
                 }
               ]
             }
@@ -332,7 +332,7 @@
                 "field": "state",
                 "operator": "equals",
                 "values": [
-                  1
+                  "1"
                 ]
               }
             ]
