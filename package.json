@@ -1,5 +1,5 @@
 {
-  "name": "jigsaw-testapp",
+  "name": "jigsaw-sampleapp",
   "version": "1.0.0",
   "description": "0.0.1",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crisfervil/Jigsaw-testapp.git"
+    "url": "git+https://github.com/crisfervil/Jigsaw-sampleapp.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/crisfervil/Jigsaw-testapp/issues"
+    "url": "https://github.com/crisfervil/Jigsaw-sampleapp/issues"
   },
-  "homepage": "https://github.com/crisfervil/Jigsaw-testapp#readme",
+  "homepage": "https://github.com/crisfervil/Jigsaw-sampleapp#readme",
   "config": {
     "jigsaw": {
       "packages": [
