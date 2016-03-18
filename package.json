@@ -1,28 +1,37 @@
 {
-   "name": "jigsaw-sampleapp",
-   "version": "1.0.0",
-   "description": "0.0.1",
-   "main": "index.js",
-   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "jigs": "node node_modules/jigsaw/bin/run"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/crisfervil/Jigsaw-sampleapp.git"
-   },
-   "author": "",
-   "license": "MIT",
-   "bugs": {
-      "url": "https://github.com/crisfervil/Jigsaw-sampleapp/issues"
-   },
-   "homepage": "https://github.com/crisfervil/Jigsaw-sampleapp#readme",
-   "config": {
-      "jigsaw": {
-         "packages": [
-            "jigsaw-app",
-            "jigsaw-mean"
-         ]
-      }
-   }
+	"name": "jigsaw-sampleapp",
+	"version": "1.0.0",
+	"description": "0.0.1",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"jigs": "node node_modules/jigsaw/bin/run"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/crisfervil/Jigsaw-sampleapp.git"
+	},
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/crisfervil/Jigsaw-sampleapp/issues"
+	},
+	"homepage": "https://github.com/crisfervil/Jigsaw-sampleapp#readme",
+	"dependencies": {
+		"body-parser": "^1.13.3",
+		"cookie-parser": "^1.3.5",
+		"debug": "^2.2.0",
+		"express": "^4.13.4",
+		"jade": "^1.11.0",
+		"morgan": "^1.6.1",
+		"serve-favicon": "^2.3.0"
+	},
+	"config": {
+		"jigsaw": {
+			"packages": [
+				"jigsaw-app",
+				"jigsaw-mean"
+			]
+		}
+	}
 }
