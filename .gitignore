@@ -1,3 +1,5 @@
 *
+# ignore everything but these files
+!app.json
 !package.json
 !readme.md

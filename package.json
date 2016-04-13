@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
+    "start-debug": "supervisor ./bin/www",    
     "test": "echo \"Error: no test specified\" && exit 1",
     "jigs": "node node_modules/jigsaw/bin/run"
   },
@@ -34,5 +35,8 @@
         "jigsaw-mean"
       ]
     }
+  },
+  "devDependencies": {
+    "supervisor": "^0.10.0"
   }
 }
